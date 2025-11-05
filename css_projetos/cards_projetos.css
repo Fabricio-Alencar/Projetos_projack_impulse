@@ -1,0 +1,281 @@
+/* ================================
+   CONTAINER PRINCIPAL DE PROJETOS
+   ================================ */
+.projetos-container {
+    display: flex;
+    flex-wrap: wrap;             /* Permite múltiplas linhas */
+    justify-content: center;     /* Centraliza horizontalmente */
+    column-gap: 2rem;            /* Espaçamento horizontal entre cards */
+    row-gap: 2.3rem;               /* Espaçamento vertical entre cards */
+    padding: 1rem;
+    width: 100%;
+    min-height: 80vh;           /* Ocupa toda a altura da tela */
+    box-sizing: border-box;
+}
+
+/* =========================
+   CARD INDIVIDUAL FIXO
+   ========================= */
+.projeto-card {
+    width: 50rem;               /* Largura fixa */
+    height: 22rem;              /* Altura fixa */
+    background-color: #fff;     /* Fundo branco */
+    border: 0.25rem solid;      /* Cor definida pelos nth-child */
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 0.4rem rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: column;      /* Dividir em cabeçalho, corpo e rodapé */
+    justify-content: space-between;
+
+    margin-right: 2rem;          /* Complementa column-gap */
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   CABEÇALHO DO CARD
+   ========================= */
+.card-cabecalho {    
+    /* Preenche toda a largura do card */
+    width: 100%;
+    height: 4.5rem;                      /* Altura do cabeçalho */
+    border-radius: 0.2rem 0.2rem 0 0;  /* Arredonda somente os cantos superiores */
+
+    /* Flexbox para centralizar texto */
+    display: flex;
+    align-items: center;               /* Centraliza verticalmente */
+    justify-content: center;           /* Centraliza horizontalmente */
+    
+    padding: 0;                        /* Remove padding interno */
+    margin: 0;                         /* Remove margem */
+    
+    box-sizing: border-box;            /* Garantir que width 100% preencha todo o espaço */
+    border-bottom: 0.35rem solid rgba(0,0,0,0.2);  /* Cor e espessura da linha */
+
+}
+
+/* =========================
+   TEXTO DO CABEÇALHO DO CARD
+   ========================= */
+.card-cabecalho-texto {
+    font-family: 'Quantico', sans-serif; /* Fonte */
+    font-style: italic;                  /* Itálico */
+    font-weight: 400;                    /* Peso da fonte */
+    font-size: 2.125rem;                 /* 34px aproximado em rem */
+    line-height: 3rem;                   /* 49px aproximado em rem */
+    text-align: center;                  /* Centraliza horizontalmente */
+    color: #000000;                      /* Cor do texto */
+    text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25); /* Sombra do texto */
+
+    display: flex;                       /* Para centralizar verticalmente */
+    align-items: center;                 /* Centralização vertical */
+    justify-content: center;             /* Centralização horizontal */
+    width: 100%;                         /* Ocupa toda a largura do cabeçalho */
+    height: 100%;                        /* Ocupa toda a altura do cabeçalho */
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   CORPO DO CARD
+   ========================= */
+.card-corpo {
+    height: 13rem;                  /* Altura fixa do corpo do card */
+
+    display: flex;
+    flex-direction: column;         /* Alinha o conteúdo verticalmente */
+    justify-content: flex-start;    /* Alinha no topo */
+    align-items: flex-start;        /* Alinha à esquerda */
+
+    padding: 1rem;                  /* Espaçamento interno */
+    box-sizing: border-box;         /* Inclui padding na altura e largura */
+    overflow: hidden;               /* Esconde o conteúdo que ultrapassa a altura */
+}
+
+/* =========================
+   TEXTO DO CORPO DO CARD
+   ========================= */
+.card-corpo p {
+    font-family: 'Quantico', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;                /* Aproximadamente 19px */
+    line-height: 2rem;              /* Aproximadamente 27px */
+    color: #000000;
+
+    text-align: left;               /* Texto alinhado à esquerda */
+    margin: 0;                      /* Remove margem padrão */
+
+    display: -webkit-box;           /* Necessário para truncar múltiplas linhas */
+    -webkit-box-orient: vertical;   /* Orientação vertical */
+    -webkit-line-clamp: 5;          /* Número máximo de linhas antes de cortar */
+    overflow: hidden;               /* Oculta o excesso de texto */
+    text-overflow: ellipsis;        /* Adiciona "..." automaticamente */
+}
+
+
+
+
+
+
+
+
+/* =========================
+   RODAPÉ DO CARD
+   ========================= */
+.card-rodape {
+    display: flex;                 /* Organiza o status e o botão lado a lado */
+    justify-content: space-between;/* Espaço entre status e botão */
+    align-items: center;           /* Centraliza verticalmente */
+    padding: 0.8rem 1rem;          /* Espaçamento interno */
+    border-top: 0.15rem solid rgba(0,0,0,0.1); /* Linha superior */
+    border-radius: 0 0 0.5rem 0.5rem; /* Arredonda cantos inferiores */
+    box-sizing: border-box;
+}
+
+/* =========================
+   STATUS DO PROJETO
+   ========================= */
+.status-concluido {
+    color: #1D4C3A;              /* Verde escuro para concluído */
+    font-weight: bold;
+    font-family: 'Quantico', sans-serif;
+}
+
+.status-andamento {
+    color: #E28587;              /* Vermelho/laranja para andamento */
+    font-weight: bold;
+    font-family: 'Quantico', sans-serif;
+}
+
+/* =========================
+   BOTÃO "VER MAIS"
+   ========================= */
+.botao-ver-mais {
+    padding: 0.5rem 1rem;
+    background-color: transparent;          /* Fundo transparente */
+    color: #888888;                         /* Texto cinza */
+    border: 0.2rem solid;                    /* Borda que seguirá a cor do card via nth-child */
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-family: 'Quantico', sans-serif;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   VARIAÇÃO AUTOMÁTICA DE CORES - LINHA
+   ========================= */
+
+/* Card 1, 5, 9... */
+.projeto-card:nth-child(4n + 1) {
+    border-color: #CD8D65; /* Marrom claro */
+}
+.projeto-card:nth-child(4n + 1) .card-cabecalho {
+    border-bottom-color: #CD8D65; /* Mesma cor da borda */
+    background-color: #FFCCAD;    /* Fundo do cabeçalho */
+}
+/* Botão "Ver Mais" do Card 1 */
+.projeto-card:nth-child(4n + 1) .botao-ver-mais {
+    border: 0.15rem solid #CD8D65; /* Mesma cor da borda do card */
+    color: #666666;                 /* Texto cinza */
+}
+.projeto-card:nth-child(4n + 1) .botao-ver-mais:hover {
+    background-color: #FFCCAD;      /* Fundo igual ao cabeçalho */
+    color: #000000;                     /* Texto branco ao passar o mouse */
+}
+
+
+
+/* Card 2, 6, 10... */
+.projeto-card:nth-child(4n + 2) {
+    border-color: #597F9E; /* Azul acinzentado */
+}
+.projeto-card:nth-child(4n + 2) .card-cabecalho {
+    border-bottom-color: #597F9E;
+    background-color: #C5E5FF;
+}
+.projeto-card:nth-child(4n + 2) .botao-ver-mais {
+    border: 0.15rem solid #597F9E;
+    color: #666666;
+}
+.projeto-card:nth-child(4n + 2) .botao-ver-mais:hover {
+    background-color: #C5E5FF;
+    color: #000000;
+}
+
+/* Card 3, 7, 11... */
+.projeto-card:nth-child(4n + 3) {
+    border-color: #B45052; /* Vermelho escuro */
+}
+.projeto-card:nth-child(4n + 3) .card-cabecalho {
+    border-bottom-color: #B45052;
+    background-color: #E28587;
+}
+.projeto-card:nth-child(4n + 3) .botao-ver-mais {
+    border: 0.15rem solid #B45052;
+    color: #666666;
+}
+.projeto-card:nth-child(4n + 3) .botao-ver-mais:hover {
+    background-color: #E28587;
+    color: #000000;
+}
+
+/* Card 4, 8, 12... */
+.projeto-card:nth-child(4n + 4) {
+    border-color: #1D4C3A; /* Verde escuro */
+}
+.projeto-card:nth-child(4n + 4) .card-cabecalho {
+    border-bottom-color: #1D4C3A;
+    background-color: #86D4AD;
+}
+.projeto-card:nth-child(4n + 4) .botao-ver-mais {
+    border: 0.15rem solid #1D4C3A;
+    color: #666666;
+}
+.projeto-card:nth-child(4n + 4) .botao-ver-mais:hover {
+    background-color: #86D4AD;
+    color: #000000;
+}
+
+
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width: 1200px) {
+    .projeto-card {
+        width: 40rem;
+        height: 20rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .projeto-card {
+        width: 90%;             /* Um card por linha em telas pequenas */
+        height: auto;
+    }
+}

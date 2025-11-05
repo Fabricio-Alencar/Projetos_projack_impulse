@@ -1,0 +1,121 @@
+/* ===========
+   PAINEL LATERAL / RETÂNGULO
+   =========== */
+
+.retangulo {
+  position: fixed;       /* fixa o painel na lateral da tela, mesmo ao rolar */
+  left: 0;               /* alinha à esquerda da tela */
+  top: 0;                /* alinha ao topo da tela */
+  width: 260px;          /* largura fixa do painel */
+  height: 100vh;         /* altura total da tela (viewport height) */
+  
+  /* Gradiente de fundo do painel */
+  background: linear-gradient(
+    to bottom, 
+    #003221 0%,    /* cor original no topo */
+    #003221 23%,   /* mantém cor até 23% do painel */
+    #02432D 5%,    /* nova cor começa a partir de 5% (mantendo efeito visual original) */
+    #02432D 100%   /* termina na parte inferior */
+  );
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* sombra suave */
+  padding: 10px;       /* espaço interno */
+  z-index: 999;         /* garante que fique acima de outros elementos */
+
+  display: flex;             /* ativa flexbox */
+  flex-direction: column;    /* organiza itens verticalmente */
+  align-items: center;       /* centraliza os itens horizontalmente */
+}
+
+/* ====================
+   IMAGENS DENTRO DO PAINEL
+   ==================== */
+
+/* Todas as imagens do painel */
+.retangulo img {
+  display: block;          /* remove espaços extras */
+  margin-left: auto;       /* centraliza horizontalmente */
+  margin-right: auto;
+  width: 80%;              /* largura relativa ao painel */
+  height: auto;            /* mantém proporção da imagem */
+  margin-bottom: 20px;     /* espaçamento abaixo da imagem */
+  object-fit: contain;     /* evita distorção da imagem */
+}
+
+/* Logo principal */
+.retangulo .logo {
+  width: 100%;             /* ocupa toda largura disponível do painel */
+  height: auto;            /* mantém proporção */
+  margin-bottom: -90px;    /* ajuste visual específico */
+  object-fit: contain;     /* mantém proporção */
+}
+
+/* Bloco com clipe */
+.retangulo .Bloco_com_clipe {
+  width: 90%;              /* ocupa 90% da largura do painel */
+  height: auto;            /* mantém proporção */
+  margin-bottom: 0px;      /* sem espaço extra abaixo */
+  object-fit: contain;     /* evita distorção */
+}
+
+/* ====================
+   TEXTO "IDEALIZADOR"
+   ==================== */
+.idealizador-texto {
+  position: relative;      /* permite ajustes relativos */
+  left: 6px;               /* desloca levemente para a direita */
+  color: #fff;             /* cor branca */
+  font-size: 36px;         /* tamanho do texto */
+  text-align: center;      /* centraliza horizontalmente */
+  margin-top: 10px;        /* espaço acima */
+  font-family: 'Quantico', sans-serif; /* fonte personalizada */
+}
+
+/* ====================
+   ITENS DE INFORMAÇÃO (Meus Projetos / Meu Perfil)
+   ==================== */
+.info-item {
+  display: flex;           /* ativa flexbox para alinhar ícone e texto na mesma linha */
+  align-items: center;     /* centraliza verticalmente o ícone com o texto */
+  gap: 10px;               /* espaço entre ícone e texto */
+  color: #fff;             /* cor do texto branca */
+  font-family: 'Quantico', sans-serif; /* fonte personalizada */
+  font-size: 22px;         /* tamanho do texto */
+  margin-top: 30px;        /* espaço acima do item */
+  padding-left: 20px;      /* desloca o item para a direita sem quebrar o alinhamento */
+}
+
+/* ====================
+   ÍCONES DENTRO DE CADA ITEM
+   ==================== */
+.info-item .icon {
+  display: block;          /* remove espaços extras ao redor da imagem */
+  width: 35px;             /* largura fixa do ícone */
+  height: 35px;            /* altura fixa do ícone */
+  object-fit: contain;     /* mantém proporção da imagem */
+  margin: 0;               /* remove margens padrão */
+  padding: 0;              /* remove padding padrão */
+}
+
+/* ====================
+   TEXTO DENTRO DE CADA ITEM
+   ==================== */
+.info-item span {
+  line-height: 40px;       /* iguala à altura do ícone, para que o texto fique centralizado verticalmente */
+}
+
+/* ====================
+   LINK DO PERFIL
+   ==================== */
+.info-item.link-perfil {
+  cursor: pointer;         /* muda o cursor para indicar clique */
+  text-decoration: none;   /* remove sublinhado padrão */
+  color: #fff;             /* mantém cor branca */
+}
+
+/* ====================
+   EFEITO AO PASSAR O MOUSE SOBRE O LINK
+   ==================== */
+.info-item.link-perfil:hover {
+  text-decoration: underline; /* sublinha o texto ao passar o mouse */
+}

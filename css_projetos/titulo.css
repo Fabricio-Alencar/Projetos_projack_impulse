@@ -1,0 +1,67 @@
+/* ===============================
+   CONTAINER DO TÍTULO E LOGO
+   =============================== */
+.titulo-superior {
+  display: flex;                 /* Flex horizontal */
+  justify-content: flex-start;   /* não empurra para a direita */
+  align-items: flex-start;       /* Alinha no topo */
+  width: 100%;                   /* Largura total do container */
+  max-width: 50rem;             /* Largura máxima para telas grandes */
+  gap: 1vw;                      /* Espaço entre título e logo */
+  padding: 3vh 2vw 0vh 2vw;
+  /* topo | direita | baixo | esquerda */
+  box-sizing: border-box;        /* Inclui padding na largura total */
+  margin: 0 auto;                /* ← Centraliza o container na tela */
+}
+
+/* ===============================
+   TÍTULO "MEUS PROJETOS"
+   =============================== */
+.titulo-texto h1 {
+  font-family: 'Poetsen One', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);  /* escala responsiva */
+  line-height: 1.1;                        /* altura da linha */
+  color: #02432D;
+  text-shadow: 0 0.25rem 0.25rem rgba(0,0,0,0.25);
+  margin: 0;
+
+  transform: scaleX(1.1);                  /* estica horizontalmente */
+  transform-origin: left center;
+}
+
+/* ===============================
+   LOGO DO PROJETO
+   =============================== */
+.logo-container {
+  margin-left: 0;  /* ajuste horizontal opcional */
+}
+
+.logo-projeto {
+  width: clamp(150px, 15vw, 200px);  /* cresce com a tela */
+  height: auto;                       /* mantém proporção */
+  object-fit: contain;
+  align-self: flex-start;             /* alinha ao topo */
+  transform: translateY(-2vh);        /* move 2vh para cima */
+}
+
+/* ===============================
+   RESPONSIVIDADE
+   =============================== */
+@media (max-width: 768px) {
+  .titulo-superior {
+    flex-direction: column;   /* empilha título e logo */
+    align-items: flex-start;
+  }
+
+  .logo-container {
+    margin-top: 1rem;         /* espaço entre título e logo */
+  }
+
+  .titulo-texto h1 {
+    font-size: clamp(1.5rem, 8vw, 3rem);  /* título menor em telas pequenas */
+  }
+
+  .logo-projeto {
+    max-width: 40%;            /* logo menor em telas pequenas */
+  }
+}

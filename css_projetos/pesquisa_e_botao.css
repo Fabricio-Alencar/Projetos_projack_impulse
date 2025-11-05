@@ -1,0 +1,106 @@
+/* ===============================
+   CONTAINER PRINCIPAL DA PESQUISA
+   =============================== */
+.container-pesquisa {
+  display: flex;                 /* Organiza a barra e o botão lado a lado */
+  align-items: center;           /* Centraliza verticalmente os elementos */
+  justify-content: center;       /* ✅ Centraliza horizontalmente o conteúdo */
+  gap: 1rem;                     /* Espaço horizontal entre a barra e o botão */
+  position: relative;            /* Necessário para posicionar o foguete sobreposto */
+  
+  width: 100%;                   /* Ocupa toda a largura disponível */
+  max-width: 75vw;               /* Limita a largura máxima a 75% da tela */
+  
+  margin: 5vh auto;              /* ✅ Centraliza horizontalmente e adiciona espaçamento vertical */
+  padding: 0.2vh 2vw;              /* Espaçamento interno proporcional */
+  
+    
+  margin-top: 0; 
+  margin-bottom: 0.8rem; 
+
+  box-sizing: border-box;        /* Inclui o padding e a borda na largura total */
+}
+
+
+/* ===============================
+   ÍCONE SOBREPOSTO (FOGUETE)
+   =============================== */
+.icone-foguete {
+  position: absolute;              /* Sobrepõe à barra */
+  left: -2.5rem;                      /* Afastamento da borda esquerda */
+  top: 50%;                        /* Move ligeiramente para cima (ajuste fino) */
+  transform: translateY(-50%) rotate(25deg); /* Centraliza e inclina o foguete */
+  width: 11rem;                     /* Tamanho proporcional */
+  height: auto;                    /* Mantém proporção */
+  z-index: 3;                      /* Garante que fique acima da barra */
+  pointer-events: none;            /* Impede que bloqueie cliques no input */
+}
+
+
+/* ===============================
+   BARRA DE PESQUISA
+   =============================== */
+.barra-pesquisa {
+  flex: 1;                       /* Faz a barra ocupar todo o espaço restante */
+  display: flex;                 /* Permite alinhar input e ícone de busca lado a lado */
+  align-items: center;           /* Centraliza verticalmente o conteúdo da barra */
+  background-color: #fff;        /* Fundo branco da barra */
+  border: 0.15rem solid #CD8D65; /* Borda com cor temática */
+  border-radius: 0.8rem;         /* Cantos arredondados */
+  padding: 0.4rem 1rem 0.4rem 3.5rem; /* Espaçamento interno (o lado esquerdo maior para o foguete) */
+  position: relative;            /* Necessário caso queira ícones internos */
+  min-height: 3rem;            /* Define altura mínima proporcional */
+  box-sizing: border-box;        /* Inclui padding e borda nas dimensões totais */
+}
+
+/* ===============================
+   INPUT DE TEXTO DENTRO DA BARRA
+   =============================== */
+.barra-pesquisa input {
+  flex: 1;                       /* Ocupa todo o espaço livre dentro da barra */
+  border: none;                  /* Remove borda padrão do input */
+  outline: none;                 /* Remove o contorno azul ao clicar */
+  background: transparent;       /* Fundo transparente (usa o fundo branco da barra) */
+  font-size: 1rem;               /* Tamanho de texto proporcional */
+  line-height: 1.5;              /* Altura das linhas confortável */
+}
+
+/* ===============================
+   BOTÃO DE BUSCA (DENTRO DA BARRA)
+   =============================== */
+.barra-pesquisa .botao-busca {
+  background: transparent;       /* Sem cor de fundo */
+  border: none;                  /* Remove borda padrão */
+  cursor: pointer;               /* Mostra o cursor de clique */
+  display: flex;                 /* Centraliza o ícone dentro do botão */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagem do botão de busca */
+.barra-pesquisa .botao-busca img {
+  width: 2rem;                 /* Tamanho proporcional */
+  height: auto;                  /* Mantém proporção da imagem */
+}
+
+/* ===============================
+   BOTÃO "CRIAR PROJETO"
+   =============================== */
+.botao-criar {
+  background: transparent;       /* Sem fundo */
+  border: none;                  /* Sem borda */
+  cursor: pointer;               /* Indica que é clicável */
+  display: flex;                 /* Centraliza o conteúdo (ícone) */
+  align-items: center;
+  margin-top: 0.5rem; 
+  justify-content: center;
+  transition: transform 0.2s ease; /* Efeito suave de crescimento no hover */
+}
+
+/* Imagem dentro*/
+
+.botao-criar img {
+  width: 13rem;     /* ← Aqui você controla o tamanho da imagem */
+  height: auto;      /* Mantém a proporção */
+  object-fit: contain; /* Garante que a imagem não distorça */
+}

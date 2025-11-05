@@ -1,0 +1,243 @@
+/* ================================
+   BLOCO DE CRIAÇÃO DE PROJETO
+   ================================ */
+
+/* Fundo escurecido que cobre toda a tela */
+.bloco-criacao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6); /* Fundo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Sobre todos os elementos */
+}
+
+/* Conteúdo interno do bloco */
+.conteudo-bloco {
+  background: #fdfdfd;
+  width: 70vw;
+  min-height: 60vh;
+  max-height: 80vh;
+  padding: 4vh;
+  border-radius: 2vh;
+  box-shadow: 0.5vh 0.5vh 2vh rgba(0,0,0,0.4);
+  text-align: center;
+  font-family: 'Quantico', sans-serif;
+  overflow-y: auto; /* Rolagem vertical se necessário */
+  border: 0.3vh solid #000;
+}
+
+/* Título do bloco */
+.titulo-bloco {
+  background: #B7D2BD;
+  color: #000;
+  width: calc(100% + 8vh); /* Para cobrir padding extra */
+  margin: -4vh -4vh 3vh -4vh;
+  padding: 3vh 0;
+  border-radius: 1vh 1vh 0 0;
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 7vh;
+  line-height: 6vh;
+  text-align: center;
+  text-shadow: 0 0.4vh 0.4vh rgba(0,0,0,0.25);
+  border-bottom: 0.3vh solid #000;
+}
+
+/* Container de divisões verticais (esquerda e direita) */
+.divisoes-container {
+  display: flex;
+  gap: 3vw;
+  margin: 4vh 0;
+}
+
+/* Cada divisão (coluna esquerda ou direita) */
+.divisao {
+  flex: 1;
+  border-radius: 1.5vh;
+  background: transparent; /* fundo transparente */
+  text-align: center;
+  font-size: 2vh;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 2vh;
+}
+
+/* ================================
+   INPUTS LADO ESQUERDO 
+   ================================ */
+
+/* Container flex para prefixo + input */
+.campo_criacao_inline {
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+  margin-bottom: 3vh;
+}
+
+/* Prefixo do input */
+.prefixo_inline {
+  flex: 0 0 auto; /* Tamanho fixo */
+  font-size: 2vh;
+  color: #000;
+}
+
+/* Inputs padrão que ocupam a linha inteira */
+.retangulo_criacao_inline,
+.retangulo_criacao_inline select {
+  flex: 1;
+  background: #FBF8E0;
+  padding: 1vh;
+  border: 0.2vh solid #006633;
+  border-radius: 1vh;
+  font-size: 2vh;
+  font-family: 'Quantico', sans-serif;
+  box-shadow: 0 0.3vh 0.6vh rgba(0,0,0,0.15);
+  box-sizing: border-box;
+}
+
+/* Textarea maior para descrição */
+.retangulo_triplo_criacao {
+  background: #FBF8E0;
+  width: 100%;
+  height: 20.3vh;
+  resize: none;
+  padding: 1vh;
+  border: 0.2vh solid #006633;
+  border-radius: 1vh;
+  font-size: 2vh;
+  font-family: 'Quantico', sans-serif;
+  box-shadow: 0 0.3vh 0.6vh rgba(0,0,0,0.15);
+}
+
+/* ================================
+   BLOCOS LADO DIREITO (Tecnologias e Repositório)
+   ================================ */
+
+/* Divisão direita com largura fixa e rolagem */
+.divisao.direita {
+  flex: 0 0 35%; /* Largura fixa */
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  overflow-y: auto;
+  padding-right: 1vh;
+}
+
+/* Cada bloco dentro da divisão direita */
+.bloco_direita {
+  background: #FBF8E0;
+  border-radius: 1.5vh;
+  padding: 0.2vh 2vh 2vh 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  box-shadow: 0 0.3vh 0.8vh rgba(0,0,0,0.1);
+  overflow-y: auto;
+  border: 0.2vh solid #006633;
+  margin-bottom: 2vh;
+}
+
+/* Cabeçalho do bloco (título e botões +/−) */
+.cabecalho_bloco {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -1vh;
+}
+
+/* Botões + e - do bloco */
+.botoes_bloco button {
+  width: 4vh;
+  height: 4vh;
+  font-size: 2vh;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.8vh;
+  cursor: pointer;
+  background: #B7D2BD;
+  color: #000;
+}
+
+/* ================================
+   Inputs dentro dos blocos
+   ================================ */
+
+/* Inputs padrão: apenas um por linha (Repositórios) */
+.input_bloco {
+  flex: 0 0 100%;
+  height: 5vh;
+  padding: 0.5vh 1vh;
+  border: 0.2vh solid #006633;
+  border-radius: 1vh;
+  font-family: 'Quantico', sans-serif;
+  box-shadow: 0 0.3vh 0.6vh rgba(0,0,0,0.15);
+  box-sizing: border-box;
+}
+
+/* Container de inputs: flex-wrap padrão */
+.inputs_bloco {
+  display: flex;
+  flex-wrap: wrap; /* quebra linha se necessário */
+  gap: 1vh;
+  height: 11.5vh;
+  overflow-y: auto;
+  padding-right: 0.5vh;
+  background: #FBF8E0;
+}
+
+/* Inputs Tecnologias: se ajustam lado a lado */
+.flex_inputs {
+  display: flex;
+  flex-wrap: wrap;  /* múltiplos na mesma linha */
+  gap: 1vh;
+}
+
+.input_bloco_flex {
+  flex: 0 0 auto;   /* tamanho baseado no conteúdo */
+  min-width: 10vh;  /* largura mínima */
+  max-width: 30vh;  /* largura máxima */
+  height: 5vh;
+  padding: 0.5vh 1vh;
+  border: 0.2vh solid #006633;
+  border-radius: 1vh;
+  font-family: 'Quantico', sans-serif;
+  box-shadow: 0 0.3vh 0.6vh rgba(0,0,0,0.15);
+  box-sizing: border-box;
+}
+
+/* ================================
+   Botões principais de Cancelar/Salvar
+   ================================ */
+.botoes_criacao {
+  display: flex;
+  justify-content: center;
+  gap: 3vh;
+  margin-top: -8vh;
+  margin-bottom: -4vh;
+}
+
+.botoes_criacao button {
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botoes_criacao button img {
+  width: 18vh;
+  height: 18vh;
+  object-fit: contain;
+}

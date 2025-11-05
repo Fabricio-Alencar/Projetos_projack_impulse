@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projack Impulse</title>
+
+  <!-- Fontes -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quantico&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css_projetos/geral.css">
+  <link rel="stylesheet" href="/css_projetos/titulo.css">
+  <link rel="stylesheet" href="/css_projetos/retangulo.css">
+  <link rel="stylesheet" href="/css_projetos/notificacoes.css">
+  <link rel="stylesheet" href="/css_projetos/pesquisa_e_botao.css">
+  <link rel="stylesheet" href="/css_projetos/cards_projetos.css">
+  <link rel="stylesheet" href="/css_projetos/criar_projetos.css">
+</head>
+<body>
+
+<!-- ================================
+     CABEÇALHO
+   ================================ -->
+   <header class="cabecalho">
+    <button id="btnToggle" class="botao_opcoes">Menu</button>
+  
+    <!-- Botão de notificação com ícone à esquerda e contador à direita -->
+    <button class="botao_notificacao">
+      <img src="/imagens_projetos/notificacoes.png" alt="Notificações" class="icone_notificacao">
+      <span id="contadorNotificacoes" class="contador_notificacoes">0</span>
+    </button>
+  </header>
+  
+
+<!-- ================================
+       CONTAINER PRINCIPAL
+     ================================ -->
+<div class="tela">
+
+    <!-- Título com logo -->
+    <div class="titulo-superior">
+      <div class="titulo-texto">
+        <h1>Meus Projetos</h1>
+      </div>
+      <div class="logo-container">
+        <img src="/imagens_projetos/Project.png" alt="Logo do Projeto" class="logo-projeto"/>
+      </div>
+    </div>
+
+    <!-- Barra de pesquisa + botão criar -->
+    <div class="container-pesquisa">
+      <img src="/imagens_projetos/foguete.png" alt="Ícone Foguete" class="icone-foguete" />
+      <div class="barra-pesquisa">
+        <input type="text" placeholder="Buscar projeto..." />
+        <button class="botao-busca">
+          <img src="/imagens_projetos/estrela.png" alt="Buscar" />
+        </button>
+      </div>
+      <button class="botao-criar">
+        <img src="/imagens_projetos/botao_novo_projeto.png" alt="Criar Projeto" />
+      </button>
+    </div>
+
+    <!-- Container de projetos (será preenchido via JS) -->
+    <div class="projetos-container"></div>
+</div>
+
+
+
+
+
+<!-- ================================
+       BLOCO DE CRIAÇÃO DE PROJETO
+     ================================ -->
+<div id="bloco-criacao" class="bloco-criacao" style="display: none;">
+  <div class="conteudo-bloco">
+
+    <!-- Título -->
+    <h2 class="titulo-bloco">Crie Seu Projeto</h2>
+
+    <!-- Divisões verticais -->
+    <div class="divisoes-container">
+
+      <!-- Divisão esquerda (inputs principais) -->
+      <div class="divisao">
+        <div class="retangulos_container_criacao">
+
+          <!-- Nome -->
+          <div class="campo_criacao_inline">
+            <input type="text" placeholder="Nome do Projeto" class="retangulo_criacao_inline" required>
+          </div>
+
+          <!-- Nível -->
+          <div class="campo_criacao_inline">
+            <select id="nivelProjeto" class="retangulo_criacao_inline" required>
+              <option value="" disabled selected>Dificuldade do projeto</option>
+              <option value="Básico">Básico</option>
+              <option value="Intermediário">Intermediário</option>
+              <option value="Avançado">Avançado</option>
+            </select>
+          </div>
+
+
+          <!-- Categoria -->
+          <div class="campo_criacao_inline">
+            <input type="text" placeholder="Categoria do Projeto" class="retangulo_criacao_inline" required>
+          </div>
+
+          <!-- Descrição -->
+          <div class="campo_criacao_inline">
+            <textarea placeholder="Descrição do Projeto" class="retangulo_triplo_criacao" required></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Divisão direita (dois blocos: Tecnologias e Repositório) -->
+      <div class="divisao">
+
+<!-- Primeiro bloco: Tecnologias (vários por linha) -->
+<div class="bloco_direita" id="bloco-tecnologias">
+  <div class="cabecalho_bloco">
+    <h3>Tecnologias:</h3>
+    <div class="botoes_bloco">
+      <button class="btn_add" id="addTec">+</button>
+      <button class="btn_remove" id="removeTec">-</button>
+    </div>
+  </div>
+  <div class="inputs_bloco flex_inputs" id="inputsTec">
+    <input type="text" placeholder="Tecnologia: 1" class="input_bloco_flex">
+    <input type="text" placeholder="Tecnologia: 2" class="input_bloco_flex">
+  </div>
+</div>
+
+<!-- Segundo bloco: Repositório (apenas um por linha) -->
+<div class="bloco_direita" id="bloco-repositorios">
+  <div class="cabecalho_bloco">
+    <h3>Repositórios:</h3>
+    <div class="botoes_bloco">
+      <button class="btn_add" id="addRepo">+</button>
+      <button class="btn_remove" id="removeRepo">-</button>
+    </div>
+  </div>
+  <div class="inputs_bloco coluna_inputs" id="inputsRepo">
+    <input type="text" placeholder="Repositório: 1" class="input_bloco">
+    <input type="text" placeholder="Repositório: 2" class="input_bloco">
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <!-- Botões centralizados -->
+    <div class="botoes_criacao">
+      <!-- Botão Cancelar como imagem -->
+      <button id="cancelarBloco" class="btn-imagem">
+        <img src="/imagens_projetos/cancelar.png" alt="Cancelar" />
+      </button>
+
+      <!-- Botão Salvar como imagem -->
+      <button id="salvarBloco" class="btn-imagem">
+        <img src="/imagens_projetos/salvar.png" alt="Salvar" />
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- BLOCO DE NOTIFICAÇÕES -->
+<div id="blocoNotificacao" class="bloco_notificacao" style="display: none;">
+
+  <!-- Conteúdo do bloco -->
+  <div class="conteudo_notificacao">
+
+    <!-- Triângulo -->
+    <div class="triangulo_notificacao">
+       <div class="triangulo"></div>
+    </div>
+    
+    <!-- Cabeçalho do bloco -->
+    <div class="cabecalho_notificacao">
+      <h3>Notificações</h3>
+    </div>
+
+    <!-- Lista de notificações individuais -->
+    <div class="lista_notificacoes" id="listaNotificacoes">
+      <!-- As notificações serão inseridas aqui via JS -->
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================================
+       SCRIPTS JS
+     ================================ -->
+<script src="/js_projetos/retangulo.js"></script>
+<script src="/js_projetos/rendenizar.js"></script>   
+<script src="/js_projetos/criar.js"></script>   
+<script src="/js_projetos/notificacao.js"></script>   
+
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* =========================
+   BOTÃO DE NOTIFICAÇÃO (IMAGEM)
+   ========================= */
+
+/* Estiliza o botão de notificações (sem fundo e sem borda) */
+.botao_notificacao {
+  background: none;              /* Remove fundo padrão */
+  border: none;                  /* Remove borda padrão */
+  cursor: pointer;               /* Cursor tipo mãozinha */
+  display: flex;                 /* Permite alinhar ícone e contador */
+  align-items: center;           /* Centraliza verticalmente */
+  justify-content: center;       /* Centraliza horizontalmente */
+  margin-right: 5vw;             /* Afasta o botão da borda direita */
+  position: relative;            /* Permite posicionar elementos internos */
+}
+
+/* Ícone à esquerda */
+.icone_notificacao {
+  width: 13vw;                   /* Largura proporcional à tela */
+  height: auto;                  /* Mantém proporção */
+  transition: transform 0.2s ease; /* Efeito de zoom suave */
+  margin-right: 1vw;             /* Espaçamento entre ícone e contador */
+}
+
+/* Contador à direita do ícone */
+.contador_notificacoes {
+  background-image: url("/imagens_projetos/fundo_contador.png"); /* Caminho da imagem */
+  background-size: cover;            /* Faz a imagem cobrir toda a área */
+  background-position: center;       /* Centraliza a imagem */
+  background-repeat: no-repeat;      /* Evita repetição */
+  
+  color: white;                      /* Texto branco (ou mude conforme o fundo) */
+  font-weight: bold;
+  font-size: 1.5vw;                  /* Tamanho proporcional à tela */
+  border-radius: 50%;                /* Formato circular */
+  width: 2.5vw;
+  height: 2.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+
+/* Efeito de zoom ao passar o mouse */
+.botao_notificacao:hover  {
+  transform: scale(1.1);         /* Aumenta 10% */
+}
+
+
+
+
+/* =========================
+   BLOCO DE NOTIFICAÇÕES
+   ========================= */
+
+/* Bloco principal que contém todas as notificações */
+.bloco_notificacao {
+  position: fixed;               /* Fixo na tela */
+  top: 4vw;                      /* Distância do topo */
+  right: 5vw;                    /* Distância da borda direita */
+  width: 25vw;                   /* Largura do bloco */
+  background: transparent; /* sem cor de fundo */
+  border-radius: 0.8rem;         /* Bordas arredondadas */
+  z-index: 1000;                 /* Fica acima de outros elementos */
+  display: flex;                 /* Flex container para organizar conteúdo */
+  flex-direction: column;        /* Conteúdo empilhado verticalmente */
+  align-items: center;           /* Centraliza horizontalmente */
+  overflow: hidden;              /* Evita overflow do conteúdo */
+}
+
+/* Conteúdo interno do bloco */
+.conteudo_notificacao {
+  width: 98%;                     /* Largura total do bloco */
+  display: flex;                   /* Flex container */
+  flex-direction: column;          /* Conteúdo empilhado verticalmente */
+  padding-right: 2rem;             /* Afasta conteúdo da borda direita */
+  box-sizing: border-box;          /* Inclui padding na largura total */
+  
+}
+
+
+
+/* =========================
+   TRIÂNGULO DO BLOCO
+   ========================= */
+
+.triangulo_notificacao {
+  background: transparent; /* sem cor de fundo */
+  border: none;            /* sem borda */
+  color: transparent;      /* se tiver texto, ele também desaparece */  width: 100%;                  /* ocupa toda a largura do container pai */
+  display: flex;                
+  justify-content: flex-end;    /* alinha o triângulo à direita */
+  padding-right: 1.5rem;        /* espaço da borda direita */
+  box-sizing: border-box;       /* inclui padding na largura total */
+}
+
+.triangulo {
+  
+  background: transparent;      /* garante que h3 e outros filhos não tenham fundo */
+  margin: 0;                    /* remove margens que podem criar "faixas" brancas */
+  padding: 0;                   /* remove padding interno que pode influenciar visual */
+  width: 0;                     /* largura zero, essencial para o truque do triângulo */
+  height: 0;                    /* altura zero */
+  border-left: 1.5vw solid transparent;  /* cria lado esquerdo inclinado */
+  border-right: 1.5vw solid transparent; /* cria lado direito inclinado */
+  border-bottom: 1.5vw solid #003221;   /* define a "base" do triângulo e sua cor */
+}
+
+
+/* =========================
+   CABEÇALHO DO BLOCO - TITULO
+   ========================= */
+
+/* Cabeçalho com título */
+.cabecalho_notificacao {
+  background-color: #003221;        /* Fundo verde escuro */
+  width: 100%;                      /* Largura total */
+  padding: 0.8rem 1rem;             /* Espaçamento interno */
+
+  /* Arredondar só as partes de cima */
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+
+  /* Sombra apenas na esquerda */
+  box-shadow: -4px 0 8px -2px rgba(0, 0, 0, 0.3);
+
+  border: 2px solid #003221;      /* Borda */
+
+}
+
+
+/* Título dentro do cabeçalho */
+.cabecalho_notificacao h3 {
+  margin: 0;                     /* Remove margem padrão */
+  font-size: 2rem;             /* Tamanho da fonte */
+  font-weight: bold;             /* Negrito */
+  font-family: 'Quantico', sans-serif; /* Família de fonte */
+  font-style: normal;            /* Não itálico */
+  color: #FFFFFF;                /* Texto branco */
+}
+
+
+/* =========================
+   LISTA DE NOTIFICAÇÕES
+   ========================= */
+
+/* Container que agrupa todas as notificações individuais */
+.lista_notificacoes {
+  
+  /* Arredondar só as partes de baixo */
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+
+    /* 🔹 Bordas sólidas apenas nos lados desejados */
+  border-left: 2px solid #003221;      /* Borda esquerda */
+  border-bottom: 2px solid #003221;    /* Borda inferior */
+  border-right: 2px solid #003221;     /* Borda direita mais grossa */
+  border-top: none;                     /* Sem borda no topo */
+
+  /* 🔹 Arredondamento apenas nas quinas inferiores */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+
+  background-color: #ffffff;     /* Fundo branco */
+
+  width: 100%;                   /* Largura total do bloco */
+  max-height: 70vh;              /* Altura máxima antes de rolagem */
+  overflow-y: auto;              /* Permite scroll vertical */
+  display: flex;                 /* Flex container */
+  flex-direction: column;        /* Empilha notificações verticalmente */
+  gap: 0.7rem;                   /* Espaço entre notificações */
+  padding: 0.8rem 1rem;          /* Espaçamento interno */
+}
+
+
+
+/* =========================
+   NOTIFICAÇÃO INDIVIDUAL
+   ========================= */
+
+/* Base da notificação */
+.notificacao_item {
+  background-color: #ffffff;     /* Fundo branco */
+
+  padding: 0.8rem;               /* Espaçamento interno */
+  border-radius: 0.8rem;         /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.35); /* Sombra */
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.2s ease; /* Efeito hover */
+  display: flex;                 /* Flex container para título/status e descrição */
+  flex-direction: column;        /* Conteúdo empilhado verticalmente */
+  box-sizing: border-box;        /* Padding incluso na largura */
+}
+
+/* Notificação não lida */
+.notificacao_item.nao_lida {
+  background-color: #9CB8A2;     /* Fundo verde claro */
+  border: 1px solid #1D4C3A;     /* Borda mais escura */
+}
+
+/* Notificação lida */
+.notificacao_item.lida {
+  background-color: #DFEDE2;     /* Fundo verde mais claro */
+  border: 1px solid #A3BFAF;     /* Borda suave */
+}
+
+/* Hover da notificação */
+.notificacao_item:hover {
+  transform: scale(1.02);        /* Leve zoom */
+  background-color: #e8f5f1;     /* Fundo muda levemente */
+}
+
+
+/* Topo da notificação: título à esquerda e status à direita */
+.topo_notificacao {
+  display: flex;                 /* Flex container */
+  justify-content: space-between; /* Título à esquerda, status à direita */
+  align-items: center;           /* Alinhamento vertical */
+}
+
+/* Título da notificação */
+.topo_notificacao .titulo {
+  font-family: 'Quantico', sans-serif;
+  font-weight: 700;              /* Negrito */
+  font-size: 1rem;               /* Tamanho da fonte */
+  color: #000000;                /* Cor do texto */
+}
+
+/* Status da notificação (Lida / Não lida) */
+.topo_notificacao .status {
+  font-family: 'Quantico', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #000000;
+}
+
+/* Descrição da notificação */
+.descricao {
+  font-family: 'Quantico', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  color: #000000;
+  display: -webkit-box;          /* Limita a exibição a 2 linhas */
+  -webkit-line-clamp: 2;         /* Máximo de 2 linhas */
+  -webkit-box-orient: vertical;  /* Orientação vertical para clamp */
+  overflow: hidden;              /* Esconde excesso */
+  text-overflow: ellipsis;       /* Adiciona "..." se ultrapassar */
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width: 1024px) {
+  .bloco_notificacao { width: 35vw; }
+}
+
+@media (max-width: 768px) {
+  .bloco_notificacao { width: 50vw; top: 12vh; }
+}
+
+@media (max-width: 480px) {
+  .bloco_notificacao {
+    width: 90vw;
+    top: 14vh;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
